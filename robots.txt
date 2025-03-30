@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://georgievsec.github.io/igsec-site/sitemap.xml

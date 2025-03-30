@@ -3,98 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IGsec - Web Security Experts</title>
+  <title>IGsec – Web Security Experts</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="IGsec provides expert web penetration testing and incident response services.">
+  <meta name="keywords" content="cybersecurity, penetration testing, incident response, IGsec, web security">
+  <meta name="author" content="IGsec">
+  <meta property="og:title" content="IGsec – Web Security Experts" />
+  <meta property="og:description" content="Stay ahead of the threat with expert penetration testing and incident response." />
+  <meta property="og:image" content="https://georgievsec.github.io/igsec-site/assets/logo-shield.jpeg" />
+  <meta property="og:url" content="https://georgievsec.github.io/igsec-site/" />
+  <meta property="og:type" content="website" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="text-white font-sans relative overflow-hidden bg-gray-900">
-
-  <div class="fixed inset-0 -z-10">
-    <div id="globeViz" class="absolute top-0 left-0 w-full h-full"></div>
-    <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
-    <style>
-      #globeViz canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: -1;
-      }
-    </style>
-  </div>
-
-  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-  <script src="https://unpkg.com/globe.gl"></script>
-  <script>
-    const globeContainer = document.getElementById('globeViz');
-    const Globe = window.Globe;
-
-    const globe = Globe()(globeContainer)
-      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
-      .backgroundColor('rgba(0,0,0,0)')
-      .arcColor(() => ['#ff6f61', '#00bcd4'][Math.floor(Math.random() * 2)])
-      .arcDashLength(0.4)
-      .arcDashGap(2)
-      .arcDashInitialGap(() => Math.random() * 5)
-      .arcDashAnimateTime(2000)
-      .arcStroke(1.2)
-      .arcsTransitionDuration(0)
-      .showAtmosphere(true)
-      .atmosphereColor('#3aafff')
-      .atmosphereAltitude(0.25);
-
-    globe.controls().autoRotate = true;
-    globe.controls().autoRotateSpeed = 0.5;
-
-    function generateArcs() {
-      return [...Array(100).keys()].map(() => {
-        const startLat = (Math.random() - 0.5) * 180;
-        const startLng = (Math.random() - 0.5) * 360;
-        const endLat = (Math.random() - 0.5) * 180;
-        const endLng = (Math.random() - 0.5) * 360;
-        return { startLat, startLng, endLat, endLng };
-      });
-    }
-
-    setInterval(() => {
-      globe.arcsData(generateArcs());
-    }, 5000);
-
-    globe.arcsData(generateArcs());
-  </script> 
-
-  <header class="p-6 bg-gray-800 shadow-md relative z-10">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-10" />
+<body class="bg-gray-900 text-white font-sans">
+  <header class="p-4 bg-gray-800 shadow-md">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+      <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-12 mb-2 sm:mb-0" />
       <nav class="space-x-4">
-        <a href="index.html" class="hover:text-teal-400 font-semibold">Home</a>
+        <a href="index.html" class="hover:text-teal-400">Home</a>
         <a href="services.html" class="hover:text-teal-400">Services</a>
         <a href="contact.html" class="hover:text-teal-400">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto py-20 px-6 text-center relative z-10">
-    <div class="mb-10">
-      <p class="italic text-gray-400 text-base leading-snug">
-        "By failing to prepare,<br />you are preparing to fail."
-      </p>
-      <p class="text-sm text-gray-500 mt-1">— Benjamin Franklin</p>
-    </div>
-    <h2 class="text-5xl font-bold mb-6">Stay Ahead of the Threat</h2>
+  <main class="max-w-4xl mx-auto py-20 px-6 text-center">
+    <h1 class="text-5xl font-bold mb-6">Stay Ahead of the Threat</h1>
     <p class="text-lg text-gray-300 mb-10">
-      At IGsec, we believe that cybersecurity shouldn't be reactive. Breaches are not inevitable.
-      Our philosophy is rooted in proactive security—uncovering vulnerabilities before attackers can exploit them
-      and responding swiftly when incidents do happen.
+      IGsec helps businesses proactively secure their applications through expert penetration testing,
+      rapid incident response, and post-incident forensics.
     </p>
     <a href="contact.html" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full text-lg">
-      Get Started
+      Contact Us
     </a>
   </main>
 
-  <footer class="text-center text-sm text-gray-500 py-6 border-t border-gray-700 relative z-10">
+  <footer class="text-center text-sm text-gray-500 py-6 border-t border-gray-700">
     &copy; 2025 IGsec. All rights reserved.
   </footer>
-<!-- force update -->
 </body>
 </html>

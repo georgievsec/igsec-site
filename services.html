@@ -3,51 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IGsec - Services</title>
+  <title>IGsec – Web Security Experts</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="IGsec provides expert web penetration testing and incident response services.">
+  <meta name="keywords" content="cybersecurity, penetration testing, incident response, IGsec, web security">
+  <meta name="author" content="IGsec">
+  <meta property="og:title" content="IGsec – Web Security Experts" />
+  <meta property="og:description" content="Stay ahead of the threat with expert penetration testing and incident response." />
+  <meta property="og:image" content="https://georgievsec.github.io/igsec-site/assets/logo-shield.jpeg" />
+  <meta property="og:url" content="https://georgievsec.github.io/igsec-site/" />
+  <meta property="og:type" content="website" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <header class="p-6 bg-gray-800 shadow-md">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-10" />
+  <header class="p-4 bg-gray-800 shadow-md">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+      <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-12 mb-2 sm:mb-0" />
       <nav class="space-x-4">
         <a href="index.html" class="hover:text-teal-400">Home</a>
-        <a href="services.html" class="hover:text-teal-400 font-semibold">Services</a>
+        <a href="services.html" class="hover:text-teal-400">Services</a>
         <a href="contact.html" class="hover:text-teal-400">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto py-20 px-6">
-    <h2 class="text-4xl font-bold mb-10 text-center">Our Services</h2>
-
-    <div class="space-y-12">
-      <section>
-        <h3 class="text-2xl font-semibold mb-2 text-teal-400">Web Application Penetration Testing</h3>
-        <p class="text-gray-300">
-          We identify vulnerabilities in your web applications using a combination of manual testing and automated scanning. Typical findings include XSS, SQL Injection, CSRF, SSRF, authentication flaws, and more. You'll receive a detailed report with remediation guidance.
-        </p>
-      </section>
-
-      <section>
-        <h3 class="text-2xl font-semibold mb-2 text-teal-400">Incident Response & Investigation</h3>
-        <p class="text-gray-300">
-          Experienced a breach or suspicious activity? We provide rapid response to isolate threats, identify the entry point, and guide you through the recovery. We help you understand what happened, how to mitigate it, and how to prevent recurrence.
-        </p>
-      </section>
-
-      <section>
-        <h3 class="text-2xl font-semibold mb-2 text-teal-400">Post-Incident Forensics</h3>
-        <p class="text-gray-300">
-          After the immediate threat is resolved, we perform forensic analysis to reconstruct the timeline, analyze attacker behavior, extract deleted evidence, and assess the overall damage. Our forensic reports are suitable for internal use or legal proceedings.
-        </p>
-      </section>
-    </div>
+  <main class="max-w-4xl mx-auto py-20 px-6 text-center">
+    <h1 class="text-5xl font-bold mb-6">Stay Ahead of the Threat</h1>
+    <p class="text-lg text-gray-300 mb-10">
+      IGsec helps businesses proactively secure their applications through expert penetration testing,
+      rapid incident response, and post-incident forensics.
+    </p>
+    <a href="contact.html" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full text-lg">
+      Contact Us
+    </a>
   </main>
 
   <footer class="text-center text-sm text-gray-500 py-6 border-t border-gray-700">
     &copy; 2025 IGsec. All rights reserved.
   </footer>
-<!-- force update -->
 </body>
 </html>
