@@ -1,3 +1,4 @@
+console.log("Globe script loaded");
 window.onload = () => {
   const globeContainer = document.getElementById('globeViz');
   const Globe = window.Globe;
