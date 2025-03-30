@@ -22,22 +22,30 @@
   <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
   <script src="https://unpkg.com/globe.gl"></script>
   <style>
-    #globeViz canvas {
-      position: absolute;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      overflow-x: hidden;
+    }
+    #globeViz {
+      position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    #globeViz canvas {
       width: 100% !important;
       height: 100% !important;
-      z-index: -1;
     }
   </style>
 </head>
-<body class="text-white font-sans relative overflow-hidden bg-gray-900">
+<body class="text-white font-sans bg-gray-900 relative">
 
-  <div class="fixed inset-0 -z-10">
-    <div id="globeViz" class="absolute top-0 left-0 w-full h-full"></div>
-    <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
-  </div>
+  <div id="globeViz"></div>
 
   <header class="p-6 bg-gray-800 shadow-md relative z-10">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
@@ -95,7 +103,7 @@
       globe.controls().autoRotateSpeed = 0.5;
 
       function generateArcs() {
-        return [...Array(100).keys()].map(() => {
+        return [...Array(80).keys()].map(() => {
           const startLat = (Math.random() - 0.5) * 180;
           const startLng = (Math.random() - 0.5) * 360;
           const endLat = (Math.random() - 0.5) * 180;
@@ -106,12 +114,10 @@
 
       setInterval(() => {
         globe.arcsData(generateArcs());
-      }, 5000);
+      }, 4000);
 
       globe.arcsData(generateArcs());
     };
   </script>
-<!-- force deploy -->
-
 </body>
 </html>
