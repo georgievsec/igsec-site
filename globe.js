@@ -1,7 +1,11 @@
 console.log("Globe script loaded");
-window.onload = () => {
+
+(() => {
   const globeContainer = document.getElementById('globeViz');
-  const Globe = window.Globe;
+  if (!globeContainer || !window.Globe) {
+    console.error("Missing globe container or Globe library.");
+    return;
+  }
 
   const globe = Globe()(globeContainer)
     .globeImageUrl('assets/earth-dark.jpg')
@@ -35,4 +39,4 @@ window.onload = () => {
   }, 4000);
 
   globe.arcsData(generateArcs());
-};
+})();
