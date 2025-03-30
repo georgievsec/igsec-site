@@ -4,27 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IGsec – Web Security Experts</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <meta name="description" content="IGsec provides expert web penetration testing and incident response services.">
   <meta name="keywords" content="cybersecurity, penetration testing, incident response, IGsec, web security">
   <meta name="author" content="IGsec">
-  <meta property="og:title" content="IGsec – Web Security Experts" />
-  <meta property="og:description" content="Stay ahead of the threat with expert penetration testing and incident response." />
-  <meta property="og:image" content="https://georgievsec.github.io/igsec-site/assets/logo-shield.jpeg" />
-  <meta property="og:url" content="https://georgievsec.github.io/igsec-site/" />
-  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self' https:;
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com;
-  style-src 'self' 'unsafe-inline';
-  img-src 'self' data: https://unpkg.com;
-  object-src 'none';
-  frame-ancestors 'none';
-  upgrade-insecure-requests;">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
-  <meta name="referrer" content="strict-origin" />
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    default-src 'self' https:;
+    script-src 'self' https://cdn.tailwindcss.com https://unpkg.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
   <script src="https://unpkg.com/globe.gl"></script>
@@ -51,7 +39,6 @@
   </style>
 </head>
 <body class="text-white font-sans bg-gray-900 relative">
-
   <div id="globeViz"></div>
 
   <header class="p-6 bg-gray-800 shadow-md relative z-10">
@@ -87,44 +74,6 @@
     &copy; 2025 IGsec. All rights reserved.
   </footer>
 
-  <script>
-    window.onload = () => {
-      const globeContainer = document.getElementById('globeViz');
-      const Globe = window.Globe;
-
-      const globe = Globe()(globeContainer)
-        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
-        .backgroundColor('rgba(0,0,0,0)')
-        .arcColor(() => ['#ff6f61', '#00bcd4'][Math.floor(Math.random() * 2)])
-        .arcDashLength(0.4)
-        .arcDashGap(2)
-        .arcDashInitialGap(() => Math.random() * 5)
-        .arcDashAnimateTime(2000)
-        .arcStroke(1.2)
-        .arcsTransitionDuration(0)
-        .showAtmosphere(true)
-        .atmosphereColor('#3aafff')
-        .atmosphereAltitude(0.25);
-
-      globe.controls().autoRotate = true;
-      globe.controls().autoRotateSpeed = 0.5;
-
-      function generateArcs() {
-        return [...Array(80).keys()].map(() => {
-          const startLat = (Math.random() - 0.5) * 180;
-          const startLng = (Math.random() - 0.5) * 360;
-          const endLat = (Math.random() - 0.5) * 180;
-          const endLng = (Math.random() - 0.5) * 360;
-          return { startLat, startLng, endLat, endLng };
-        });
-      }
-
-      setInterval(() => {
-        globe.arcsData(generateArcs());
-      }, 4000);
-
-      globe.arcsData(generateArcs());
-    };
-  </script>
+  <script src="globe.js"></script>
 </body>
 </html>
