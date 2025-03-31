@@ -70,15 +70,15 @@
 
   <script>
     window.onload = () => {
-      console.log("✅ window.onload fired");
+      console.log("window.onload fired");
 
       const globeContainer = document.getElementById('globeViz');
-      console.log("🧩 globeContainer:", globeContainer);
+      console.log("globeContainer:", globeContainer);
 
       const Globe = window.Globe;
 
       const globe = Globe()(globeContainer)
-        .globeImageUrl('assets/earth-dark.jpg')
+        .globeImageUrl('./assets/earth-dark.jpg')
         .backgroundColor('rgba(0,0,0,0)')
         .arcColor(() => ['#ff6f61', '#00bcd4'][Math.floor(Math.random() * 2)])
         .arcDashLength(0.4)
