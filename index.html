@@ -15,8 +15,8 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      background: #000;
       overflow-x: hidden;
-      background: black;
     }
     #globeViz {
       position: fixed;
@@ -24,7 +24,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: -1;
     }
     #globeViz canvas {
       width: 100% !important;
@@ -32,47 +32,48 @@
     }
   </style>
 </head>
-<body class="relative text-white font-sans">
+<body class="min-h-screen flex flex-col bg-gray-900 text-white font-sans">
+
   <div id="globeViz"></div>
 
-  <header class="p-6 bg-gray-900 shadow-md relative z-10">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-10" />
-      <nav class="space-x-4">
-        <a href="index.html" class="hover:text-teal-400 font-semibold">Home</a>
-        <a href="services.html" class="hover:text-teal-400">Services</a>
-        <a href="contact.html" class="hover:text-teal-400">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="flex-grow">
+    <header class="p-6 bg-gray-800 shadow-md relative z-10">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-10" />
+        <nav class="space-x-4">
+          <a href="index.html" class="hover:text-teal-400 font-semibold">Home</a>
+          <a href="services.html" class="hover:text-teal-400">Services</a>
+          <a href="contact.html" class="hover:text-teal-400">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="max-w-4xl mx-auto py-20 px-6 text-center relative z-10">
-  <div class="mb-10">
-    <p class="italic text-gray-400 text-base leading-snug">
-      "By failing to prepare,<br />you are preparing to fail."
-    </p>
-    <p class="text-sm text-gray-500 mt-1">— Benjamin Franklin</p>
+    <main class="max-w-4xl mx-auto py-20 px-6 text-center relative z-10">
+      <div class="mb-10">
+        <p class="italic text-gray-400 text-base leading-snug">
+          "By failing to prepare,<br />you are preparing to fail."
+        </p>
+        <p class="text-sm text-gray-500 mt-1">— Benjamin Franklin</p>
+      </div>
+      <h2 class="text-5xl font-bold mb-6">Stay Ahead of the Threat</h2>
+      <p class="text-lg text-gray-300 mb-10">
+        At IGsec, we believe that cybersecurity shouldn't be reactive. Breaches are not inevitable.
+        Our philosophy is rooted in proactive security—uncovering vulnerabilities before attackers can exploit them
+        and responding swiftly when incidents do happen.
+      </p>
+      <a href="contact.html" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full text-lg">
+        Get Started
+      </a>
+    </main>
   </div>
-  <h2 class="text-5xl font-bold mb-6">Stay Ahead of the Threat</h2>
-  <p class="text-lg text-gray-300 mb-10">
-    At IGsec, we believe that cybersecurity shouldn't be reactive...
-  </p>
-  <a href="contact.html" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full text-lg">
-    Get Started
-  </a>
-</main>
 
-  <footer class="bg-gray-900 text-center text-sm text-gray-500 py-6 border-t border-gray-700 relative z-10">
+  <footer class="bg-gray-900 text-center text-sm text-gray-500 py-6 border-t border-gray-700">
     &copy; 2025 IGsec. All rights reserved.
   </footer>
 
   <script>
     window.onload = () => {
-      console.log("window.onload fired");
-
       const globeContainer = document.getElementById('globeViz');
-      console.log("globeContainer:", globeContainer);
-
       const Globe = window.Globe;
 
       const globe = Globe()(globeContainer)
@@ -109,5 +110,6 @@
       globe.arcsData(generateArcs());
     };
   </script>
+
 </body>
 </html>
