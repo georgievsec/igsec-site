@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGsec – Web Security Experts</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  <script src="https://unpkg.com/globe.gl"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    #globeViz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    #globeViz canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    footer {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body class="text-white font-sans relative">
+  <div id="globeViz"></div>
+  <header class="p-6 bg-black bg-opacity-80 shadow-md relative z-10">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <img src="assets/logo-shield.jpeg" alt="IGsec Logo" class="h-10" />
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:text-teal-400 font-semibold">Home</a>
+        <a href="services.html" class="hover:text-teal-400">Services</a>
+        <a href="contact.html" class="hover:text-teal-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-grow flex flex-col items-center justify-center text-center z-20 relative px-6 py-20">
+    <div class="mb-10">
+      <p class="italic text-gray-400 text-base leading-snug">
+        "By failing to prepare,<br />you are preparing to fail."
+      </p>
+      <p class="text-sm text-gray-500 mt-1">— Benjamin Franklin</p>
+    </div>
+    <h2 class="text-5xl font-bold mb-6">Stay Ahead of the Threat</h2>
+    <p class="text-lg text-gray-300 mb-10 max-w-2xl">
+      At IGsec, we believe that cybersecurity shouldn't be reactive. Breaches are not inevitable.
+      Our philosophy is rooted in proactive security—uncovering vulnerabilities before attackers can exploit them
+      and responding swiftly when incidents do happen.
+    </p>
+    <a href="contact.html" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full text-lg">
+      Get Started
+    </a>
+  </main>
+  <footer class="bg-black bg-opacity-80 text-center text-sm text-gray-500 py-6 border-t border-gray-700 relative z-10">
+    &copy; 2025 IGsec. All rights reserved.
+  </footer>
+  <script>
+    window.onload = () => {
+      const globeContainer = document.getElementById('globeViz');
+      const Globe = window.Globe;
+      const globe = Globe()(globeContainer)
+        .globeImageUrl('./assets/earth-dark.jpg')
+        .backgroundColor('rgba(0,0,0,0)')
+        .arcColor(() => ['#ff6f61', '#00bcd4'][Math.floor(Math.random() * 2)])
+        .arcDashLength(0.4)
+        .arcDashGap(2)
+        .arcDashInitialGap(() => Math.random() * 5)
+        .arcDashAnimateTime(2000)
+        .arcStroke(1.2)
+        .arcsTransitionDuration(0)
+        .showAtmosphere(true)
+        .atmosphereColor('#3aafff')
+        .atmosphereAltitude(0.25);
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = 0.5;
+      function generateArcs() {
+        return [...Array(80).keys()].map(() => {
+          const startLat = (Math.random() - 0.5) * 180;
+          const startLng = (Math.random() - 0.5) * 360;
+          const endLat = (Math.random() - 0.5) * 180;
+          const endLng = (Math.random() - 0.5) * 360;
+          return { startLat, startLng, endLat, endLng };
+        });
+      }
+      setInterval(() => {
+        globe.arcsData(generateArcs());
+      }, 4000);
+      globe.arcsData(generateArcs());
+    };
+  </script>
+</body>
+</html>
